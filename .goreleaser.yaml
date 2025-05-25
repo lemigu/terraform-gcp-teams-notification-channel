@@ -18,8 +18,8 @@ dockers:
     ids:
       - notifier
     image_templates:
-      - "docker.io/lemigu/terraform-gcp-teams-notification-channel:{{ .Version }}"
-      - "docker.io/lemigu/terraform-gcp-teams-notification-channel:latest"
+      - "docker.io/dockerlemigu/terraform-gcp-teams-notification-channel:{{ .Version }}"
+      - "docker.io/dockerlemigu/terraform-gcp-teams-notification-channel:latest"
     build_flag_templates:
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
