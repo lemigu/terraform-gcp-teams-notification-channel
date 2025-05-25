@@ -15,8 +15,8 @@ module "teams-notifications" {
   source = "git@github.com:lemigu/terraform-gcp-teams-notification-channel.git//module?ref=v1.0.0"
 
   webhook_url     = "https://<xxx>.webhook.office.com/webhookb2/<YYYYYYYYYYYYYYYY>"
-  project_id      = <you_gcp_project_id>
-  container_image = docker.io/dockerlemigu/terraform-gcp-teams-notification-channel:1.0.0
+  project_id      = "<you_gcp_project_id>"
+  container_image = "docker.io/dockerlemigu/terraform-gcp-teams-notification-channel:1.0.0"
 }
 
 resource "google_monitoring_alert_policy" "<your_alerting_policy" {
