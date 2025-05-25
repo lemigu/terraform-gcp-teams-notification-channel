@@ -18,7 +18,7 @@ dockers:
     ids:
       - notifier
     image_templates:
-      - "{{ .Env.DOCKER_REPOSITORY }}:{{ .Version }}"
+      - "ghcr.io/lemigu/terraform-gcp-teams-notification-channel:{{ .Version }}"
     skip_push: true
     build_flag_templates:
       - "--label=org.opencontainers.image.created={{ .Date }}"
