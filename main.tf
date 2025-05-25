@@ -9,6 +9,11 @@ resource "google_cloud_run_service" "teams_notifier" {
 
       containers {
         image = var.container_image
+
+        env {
+          name  = "WEBHOOK_URL"
+          value = var.webhook_url
+        }
       }
     }
   }

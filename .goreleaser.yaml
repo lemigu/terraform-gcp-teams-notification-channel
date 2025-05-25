@@ -1,0 +1,28 @@
+version: 2
+
+builds:
+  - id: notifier
+    main: ./cloudrun/main.go
+    binary: notifier
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    goarch:
+      - amd64
+
+dockers:
+  - goos: linux
+    goarch: amd64
+    dockerfile: ./cloudrun/Dockerfile
+    ids:
+      - notifier
+    image_templates:
+      - "{{ .Env.DOCKER_REPOSITORY }}:{{ .Version }}"
+    skip_push: true
+    build_flag_templates:
+      - "--label=org.opencontainers.image.created={{ .Date }}"
+      - "--label=org.opencontainers.image.title={{ .ProjectName }}"
+      - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
+      - "--label=org.opencontainers.image.version={{ .Version }}"
+      - "--platform=linux/amd64"
