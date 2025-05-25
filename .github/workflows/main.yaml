@@ -27,9 +27,8 @@ jobs:
             echo "tag=latest" >> $GITHUB_OUTPUT
           fi
       - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2
+        uses: goreleaser/goreleaser-action@v6
         with:
-          version: "${{ steps.gettag.outputs.tag }}"
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
