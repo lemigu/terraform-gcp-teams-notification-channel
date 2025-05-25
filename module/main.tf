@@ -40,13 +40,13 @@ resource "google_monitoring_notification_channel" "teams_notification_channel" {
 
 resource "google_service_account" "teams_notifier_invoker" {
   project      = var.project_id
-  account_id   = "teams-notifier-invoker-${var.environment}-sva"
+  account_id   = "notifier-invoker-${var.environment}"
   display_name = "Teams Notifier Invoker"
 }
 
 resource "google_service_account" "notifier" {
   project      = var.project_id
-  account_id   = "teams-notifier-${var.environment}-sva"
+  account_id   = "teams-notifier-${var.environment}"
   display_name = "Teams Notifier"
 }
 
