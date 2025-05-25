@@ -1,7 +1,7 @@
 variable "container_image" {
   description = "Container image"
   type        = string
-  default     = "docker.io/dockerlemigu/terraform-gcp-teams-notification-channel:latest"
+  default     = "docker.io/dockerlemigu/terraform-gcp-teams-notification-channel:1.0.0"
 }
 
 variable "webhook_url" {
