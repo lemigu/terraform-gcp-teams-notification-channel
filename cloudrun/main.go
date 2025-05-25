@@ -100,6 +100,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Printf("received alert %+v", alertPayload)
+
 	teamsMessage := generateMessageFromPayload(alertPayload)
 	err = sendMessage(webhookUrl, teamsMessage)
 	if err != nil {
