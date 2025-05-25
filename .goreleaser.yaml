@@ -19,7 +19,6 @@ dockers:
       - notifier
     image_templates:
       - "ghcr.io/lemigu/terraform-gcp-teams-notification-channel:{{ .Version }}"
-    skip_push: true
     build_flag_templates:
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
