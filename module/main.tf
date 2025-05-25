@@ -5,7 +5,7 @@ resource "google_cloud_run_service" "teams_notifier" {
 
   template {
     spec {
-      service_account_name = google_service_account.cloudrun_service_account.email
+      service_account_name = google_service_account.notifier.email
 
       containers {
         image = var.container_image
@@ -30,9 +30,9 @@ resource "google_pubsub_topic" "teams_notification_topic" {
 }
 
 resource "google_monitoring_notification_channel" "teams_notification_channel" {
-  project = var.project_id
-  name    = "Teams Notification Channel (${var.environment})"
-  type    = "pubsub"
+  project      = var.project_id
+  display_name = "Teams Notification Channel (${var.environment})"
+  type         = "pubsub"
   labels = {
     "topic" = google_pubsub_topic.teams_notification_topic.id
   }
