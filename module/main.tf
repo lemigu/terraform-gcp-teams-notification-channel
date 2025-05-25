@@ -29,6 +29,14 @@ resource "google_pubsub_topic" "teams_notification_topic" {
   name    = "teams-nofitication-topic-${var.environment}"
 }
 
+resource "google_pubsub_topic_iam_member" "monitoring_alerts_publisher" {
+  project = var.project_id
+  topic   = google_pubsub_topic.teams_notification_topic.name
+
+  role   = "roles/pubsub.publisher"
+  member = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-monitoring-notification.iam.gserviceaccount.com"
+}
+
 resource "google_monitoring_notification_channel" "teams_notification_channel" {
   project      = var.project_id
   display_name = "Teams Notification Channel (${var.environment})"
