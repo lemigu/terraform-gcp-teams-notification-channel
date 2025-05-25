@@ -122,7 +122,7 @@ func generateMessageFromPayload(payload AlertPayload) TeamsMessage {
 		Type:       "MessageCard",
 		Context:    "http://schema.org/extensions",
 		ThemeColor: "B30000",
-		Summary:    fmt.Sprintf("🚨 %s", payload.Incident.AlertingPolicyName),
+		Summary:    payload.Incident.AlertingPolicyName,
 		Sections: []Section{
 			{
 				ActivityTitle:    payload.Incident.ConditionName,
